@@ -1,6 +1,8 @@
 // Learn Quick Start
 // https://react.dev/learn
 
+import { useState } from 'react';
+
 function MyButton() {
   return (
     <button>
@@ -33,6 +35,20 @@ function ClickButton() {
   );
 }
 
+function CountButton() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Clicked {count} times
+    </button>
+  );
+}
+
 export default function MyApp() {
   return (
     <div>
@@ -47,6 +63,9 @@ export default function MyApp() {
       <h3>Responding to events</h3>
       <ClickButton />
 
+      <h3>Updating the screen</h3>
+      <CountButton />
+      <CountButton />
     </div>
   );
 }
