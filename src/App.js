@@ -49,7 +49,22 @@ function CountButton() {
   );
 }
 
+function SharingCountButton({ count, onClick }) {
+  return (
+    <button onClick={onClick}>
+      Clicked {count} times
+    </button>
+  );
+}
+
+
 export default function MyApp() {
+  const [shareCount, setShareCount] = useState(0);
+
+  function handleSharingClick() {
+    setShareCount(shareCount + 1);
+  }
+
   return (
     <div>
       <h1>Welcome to my app</h1>
@@ -66,6 +81,10 @@ export default function MyApp() {
       <h3>Updating the screen</h3>
       <CountButton />
       <CountButton />
+
+      <h3>Sharing data between components</h3>
+      <SharingCountButton count={shareCount} onClick={handleSharingClick} />
+      <SharingCountButton count={shareCount} onClick={handleSharingClick} />
     </div>
   );
 }
