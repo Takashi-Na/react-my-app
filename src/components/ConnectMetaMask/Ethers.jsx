@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export default function Ethers() {
+export default function ConnectMetaMaskWithEthers() {
   const [currentAccount, setCurrentAccount] = useState("");
 
   const checkIfWalletIsConnected = async () => {
@@ -43,7 +43,7 @@ export default function Ethers() {
 
   const renderNotConnectedContainer = () => (
     <button onClick={connectWallet}>
-      Connect to Wallet
+      Connect to MetaMask
     </button>
   )
 
