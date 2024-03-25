@@ -21,6 +21,17 @@ const listItems = products.map(product =>
   </li>
 );
 
+function ClickButton() {
+  function handleClick() {
+    alert('You clicked me!');
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Click me
+    </button>
+  );
+}
 
 export default function MyApp() {
   return (
@@ -32,8 +43,10 @@ export default function MyApp() {
 
       <h3>Rendering lists</h3>
       <ul>{listItems}</ul>
+
+      <h3>Responding to events</h3>
+      <ClickButton />
+
     </div>
-
-
   );
 }
