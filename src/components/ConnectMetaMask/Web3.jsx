@@ -3,7 +3,7 @@ import { Web3 } from 'web3';
 
 export default function ConnectMetaMaskWeb3() {
   //react state to store and show the connected account
-  const [connectedAccount, setConnectedAccount] = useState('null');
+  const [connectedAccount, setConnectedAccount] = useState("");
 
   async function connectMetamask() {
     //check metamask is installed
@@ -24,18 +24,24 @@ export default function ConnectMetaMaskWeb3() {
     }
   }
 
+  const renderNotConnectedContainer = () => (
+    <button onClick={connectMetamask}>
+      Connect to MetaMask
+    </button>
+  )
+
+
   return (
     <>
       <h1>Connect MetaMask with web3</h1>
-      <>
-        {/* Button to trigger Metamask connection */}
-        <button onClick={connectMetamask}>
-          Connect to MetaMask
-        </button>
-
-        {/* Display the connected account */}
-        <p>address: {connectedAccount}</p>
-      </>
+      {connectedAccount === "" ? (
+        renderNotConnectedContainer()
+      ) : (
+        <>
+          <p>Connected your MetaMask with web3</p>
+          <p>Address: {connectedAccount}</p>
+        </>
+      )}
     </>
   )
 }
